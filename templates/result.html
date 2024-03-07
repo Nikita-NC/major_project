@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/f1.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
+</head>
+
+<body>
+    <div class="nav">
+        <input type="checkbox" id="nav-check">
+        <div class="nav-header">
+            <div class="nav-title">
+                <a href="{{ url_for('index') }}">
+                    <img src="{{ url_for('static', filename='icon/eye logo.png') }}" class="logo">
+                </a>
+            </div>
+        </div>
+        <div class="nav-btn">
+            <label for="nav-check">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+
+        <div class="nav-links">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="">About</a>
+            <a href="">Profile</a>
+        </div>
+    </div>
+    <div class="result">
+        <div class="result-container">
+            <h1>Prediction: {{ prediction }}</h1><br>
+            {% if 'message' in disease_info %}
+            <p>{{ disease_info.message }}</p>
+            {% else %}
+        </div>
+        <div class="result-container">
+            <br>
+            <h2>Disease Information:</h2><br>
+            <li><strong>Cause:</strong> {{ disease_info.cause }}</li><br>
+            <li><strong>Major Reason:</strong> {{ disease_info.major_reason }}</li><br>
+            <li><strong>Prevention:</strong> {{ disease_info.prevention }}</li><br>
+            <!-- <li><strong>Prevention Medicines:</strong> {{ disease_info.treatment }}</li> -->
+            {% endif %}
+        </div>
+
+    </div>
+    <div class="back_button">
+        <a href="./">Go Back</a>
+    </div>
+
+</body>
+
+</html>
+<!-- <p><strong>Stage:</strong> {{ disease_info.stage }}</p> -->
